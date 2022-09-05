@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.BSeatDAO">
+    <insert id="insertBSeat" parameterType="bsvo">
+        insert into b_seat(sid, bno) values(#{sid}, #{bno})
+    </insert>
+    <select id="selectSeatFromBno" parameterType="string" resultType="svo">
+        select * from b_seat where bno = #{bno};
+    </select>
+    <delete id="deleteBSestsFromBno" parameterType="String">
+        delete from b_seat where bno = #{bno}
+    </delete>
+</mapper>

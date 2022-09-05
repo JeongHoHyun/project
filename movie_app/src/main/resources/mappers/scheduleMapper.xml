@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.ScheduleDAO">
+	<insert id="insert" parameterType="scvo">
+		insert into schedule
+		(rno, tno, start_time, end_time, movie_id)
+		values
+		(#{rno}, #{tno}, #{startTime}, #{endTime}, #{movieId})
+	</insert>
+    <select id="selectList" parameterType="schdto" resultType="scvo">
+        select * from schedule
+        where rno = #{rno} and movie_id = #{movieId}
+        and DATE_FORMAT(start_time, '%Y-%m-%d') = #{date} and start_time &gt; now()
+    </select>
+    <select id="selectListAll" resultType="scvo">
+        select * from schedule
+    </select>
+    <select id="selectOneFromScno" parameterType="long" resultType="scvo">
+        select * from schedule
+        where scno = #{scno}
+    </select>
+</mapper>

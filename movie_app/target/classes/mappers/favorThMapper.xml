@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.FavorThDAO">
+	<insert id="insert" parameterType="fvo">
+		insert into favor_th (mno, tno) values (#{mno}, #{tno})
+	</insert>
+	
+	<select id="selectFno" resultType="long" parameterType="fvo">
+		select fno from favor_th 
+		where mno = #{mno} and tno = #{tno}
+	</select>
+	<select id="countFno" resultType="int" parameterType="long">
+		select count(fno) from favor_th
+		where mno = #{mno}
+	</select>
+	<select id="dupleCheck" parameterType="fvo" resultType="int">
+		select count(fno) from favor_th
+		where mno = #{mno} and tno = #{tno}
+	</select>
+	<select id="selectOne" parameterType="long" resultType="fvo">
+		select fno, tname, t.tno from theater t left join favor_th ft on t.tno = ft.tno where mno = #{mno};
+	</select>
+	
+	<delete id="delete" parameterType="long">
+		delete from favor_th where fno = #{fno}
+	</delete>
+</mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.TheaterDAO">
+    <select id="selectListByRegion" parameterType="int" resultType="tvo">
+        select tno ,tname, region from theater
+        where region = #{region}
+    </select>
+    <select id="selectList" parameterType="long" resultType="tvo">
+        select distinct t.tno, addr, region, tname, total_room, total_seat
+        from theater t
+        <if test="movieId != null and movieId > 0">
+        left join schedule s on t.tno = s.tno
+        where s.movie_id = #{movieId} and s.start_time &gt; now()
+        </if>
+    </select>
+    <select id="selectListAll" resultType="tvo">
+        select * from theater
+    </select>
+    <select id="selectOne" parameterType="long" resultType="tvo">
+        select * from theater
+        where tno = #{tno}
+    </select>
+    <select id="selectSpecialList" parameterType="long" resultType="tvo">
+		select distinct t.tno, tname, region, addr
+		from theater t join room r on t.tno = r.tno join schedule s on r.rno = s.rno
+		where r.show_type &gt; 0
+        <if test="movieId != null and movieId > 0">
+		and s.movie_id = #{movieId} and s.start_time &gt; now()
+        </if>
+    </select>
+    <select id="selectOneFromRno" parameterType="long" resultType="tvo">
+        select t.tno, tname, region, addr from theater t left join room r on t.tno = r.tno
+        where rno = #{rno}
+    </select>
+        <select id="selectOneFromTno" parameterType="long" resultType="tvo">
+        select * from theater where tno = #{tno}
+    </select>
+    <select id="selectTname" resultType="string" parameterType="long">
+        select tname from theater where tno = #{tno}
+    </select>
+</mapper>

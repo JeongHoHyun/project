@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.RoomDAO">
+    <select id="selectList" resultType="rvo" parameterType="long">
+        select r.rname, m.movie_nm, r.show_type from movie m inner join room r on m.movie_id = r.movie_id where tno = #{tno};
+    </select>
+    <select id="selectListAll" resultType="rvo">
+        select * from room;
+    </select>
+    <select id="selectTicketList" parameterType="long" resultType="rvo">
+        select rno, tno, rname, show_type, movie_id, special
+        from room
+        where tno = #{tno}
+    </select>
+    <select id="selectOneFromRno" parameterType="long" resultType="rvo">
+        select * from room where rno = #{rno}
+    </select>
+</mapper>

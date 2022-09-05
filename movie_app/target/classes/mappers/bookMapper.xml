@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.BookDAO">
+    <insert id="insertBook" parameterType="bvo">
+        insert into book (bno, scno, mno, movie_id, pay, adult, teenager, elder)
+        values (#{bno}, #{scno}, #{mno}, #{movieId}, #{pay}, #{adult}, #{teenager}, #{elder})
+    </insert>
+    <select id="selectBnoCount" resultType="int">
+        select count(bno) from book
+    </select>
+    <delete id="deleteBook" parameterType="String">
+        delete from book where bno = #{bno}
+    </delete>
+    <select id="selectBook" parameterType="long" resultType="bvo">
+        select * from book where mno = #{mno}
+    </select>
+    <select id="countBookFromMno" resultType="int">
+        select count(bno) from book where mno = #{mno}
+    </select>
+</mapper>

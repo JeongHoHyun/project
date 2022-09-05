@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.CommentDAO">
+	<insert id="insert" parameterType="cvo">
+		insert into comment (movie_id, writer, content, rate)
+		values (#{movieId}, #{writer}, #{content}, #{rate})
+	</insert>
+	<select id="selectList" resultType="cvo">
+		select a.cno, writer, content, a.mod_at, rate
+		  from (
+		  	select cno, mod_at from comment
+		  	where movie_id = #{movieId}
+		  	order by mod_at desc
+		  	limit #{pgvo.pageStart}, #{pgvo.qty}
+		  ) a left join comment b
+		  on a.cno = b.cno
+	</select>
+	<select id="selectSumRate" resultType="int">
+        select sum(rate) from comment where movie_id = #{movieId}
+    </select>
+	<select id="selectTotalCount" resultType="int">
+		select count(cno) from comment where movie_id = #{movieId}
+	</select>
+	<update id="update" parameterType="cvo">
+		update comment set content = #{content}, mod_at = now(), rate = #{rate}
+		where cno = #{cno}
+	</update>
+	<delete id="delete" parameterType="long">
+		delete from comment where cno = #{cno}
+	</delete>
+</mapper>

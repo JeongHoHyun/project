@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<settings>
+	<setting name="mapUnderscoreToCamelCase" value="true"/>
+</settings>
+<typeAliases>
+    <typeAlias type="com.myweb.www.domain.BookVO" alias="bvo"/>
+    <typeAlias type="com.myweb.www.domain.BSeatVO" alias="bsvo"/>
+    <typeAlias type="com.myweb.www.domain.ChatVO" alias="chvo"/>
+    <typeAlias type="com.myweb.www.domain.CommentVO" alias="cvo"/>
+    <typeAlias type="com.myweb.www.domain.FavorThVO" alias="fvo"/>
+    <typeAlias type="com.myweb.www.domain.MemberVO" alias="mvo"/>
+    <typeAlias type="com.myweb.www.domain.MovieVO" alias="movo"/>
+    <typeAlias type="com.myweb.www.domain.RoomVO" alias="rvo"/>
+    <typeAlias type="com.myweb.www.domain.ScheduleVO" alias="scvo"/>
+    <typeAlias type="com.myweb.www.domain.SeatVO" alias="svo"/>
+    <typeAlias type="com.myweb.www.domain.TheaterVO" alias="tvo"/>
+    <typeAlias type="com.myweb.www.domain.SearchDTO" alias="schdto"/>
+</typeAliases>
+</configuration>

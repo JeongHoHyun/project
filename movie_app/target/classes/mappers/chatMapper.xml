@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myweb.www.repository.ChatDAO">
+	<insert id="insert">
+		insert into chat (movie_id, content, writer, play_sec)
+		values(#{movieId}, #{content}, #{writer}, #{playSec})
+	</insert>
+	<select id="selectList" resultType="chvo">
+		select * from chat where movie_id = #{movieId}
+		order by play_sec
+	</select>
+	<select id="selectMyList" resultType="chvo">
+		select * from chat where movie_id = #{movieId} and mno = #{mno}
+	</select>
+	<update id="update">
+		update chat set content = #{content} where chno = #{chno}
+	</update>
+	<delete id="delete">
+		delete from chat where chno = #{chno}
+	</delete>
+</mapper>

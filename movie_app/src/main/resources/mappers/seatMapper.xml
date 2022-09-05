@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.SeatDAO">
+	<insert id="insertSeat" parameterType="schdto">
+		insert into seat(sid, scno, status, valid, price) values(
+		concat(#{y}, '-', lpad(#{x}, 2, '0')), #{scno}, 0, #{valid}, 12000);
+	</insert>
+    <select id="selectSeatCount" parameterType="long" resultType="int">
+        select count(sid) from seat where scno = #{scno}
+    </select>
+    <select id="selectEmptyCount" parameterType="long" resultType="int">
+        select count(status) from seat
+        where scno = #{scno} and
+        status = 0
+    </select>
+    <select id="selectListFromScno" parameterType="long" resultType="svo">
+        select * from seat where scno = #{scno} order by sid;
+    </select>
+    <update id="updateStatusToTrue" parameterType="svo">
+        update seat set status = 1 where sid = #{sid} and scno = #{scno} and status = 0
+    </update>
+    <update id="updateStatusToFalse" parameterType="svo">
+        update seat set status = 0 where sid = #{sid} and scno = #{scno} and status = 1
+    </update>
+</mapper>
