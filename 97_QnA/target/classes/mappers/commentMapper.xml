@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qna.www.repository.CommentDAO">
+	<insert id="insert" parameterType="cvo">
+		insert into answers (qno, writer, content)
+		values (#{qno}, #{writer}, #{content})
+	</insert>
+	<select id="selectList" resultType="cvo">
+		select a.ano, writer, content, mod_at
+		  from (
+		  	select ano from answers
+		  	where qno = #{qno}
+		  	limit #{pgvo.pageStart}, #{pgvo.qty}
+		  ) a left join answers b
+		  on a.ano = b.ano
+	</select>
+	<select id="selectTotalCount" resultType="int">
+		select count(ano) from answers where qno = #{qno}
+	</select>
+	<select id="selectQno" parameterType="long" resultType="long">
+		select qno from answers where ano = #{ano}
+	</select>
+	<update id="update" parameterType="cvo">
+		update answers set
+		content = #{content}, mod_at = now()
+		where ano = #{ano}
+	</update>
+	<delete id="delete" parameterType="long">
+		delete from answers where ano = #{ano}
+	</delete>
+</mapper>

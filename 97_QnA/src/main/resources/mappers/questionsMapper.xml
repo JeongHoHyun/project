@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qna.www.repository.QuestionsDAO">
+	<sql id="search">
+		<if test="type != null">
+			<trim prefix="and (" prefixOverrides="OR" suffix=")">
+				<foreach collection="typeToArray" item="type">
+					<trim prefix="OR">
+						<choose>
+							<when test="type == 't'.toString()">
+								title like concat('%', #{kw}, '%')
+							</when>
+							<when test="type == 'w'.toString()">
+								writer like concat('%', #{kw}, '%')
+							</when>
+							<when test="type == 'c'.toString()">
+								category like concat('%', #{kw}, '%')
+							</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+	<insert id="insert">
+		insert into questions
+		(category, title, writer, question, file_count)
+		values
+		(#{category}, #{title}, #{writer},#{question}, #{fileCount})
+	</insert>
+	<select id="selectList" resultType="qvo" parameterType="pgvo">
+		select
+		a.qno, category, title, writer, mod_at, read_count, ans_qty, file_count
+		from (
+			select qno from questions where qno > 0
+			<include refid="search"/>
+			order by qno desc limit #{pageStart}, #{qty}
+		) a left join questions b
+		on a.qno = b.qno
+	</select>
+	<select id="selectOne" resultType="qvo">
+		select * from questions
+		where qno = #{qno}
+	</select>
+	<select id="selectTotalCount" resultType="int" parameterType="pgvo">
+		select count(qno) from questions where qno > 0
+		<include refid="search" />
+	</select>
+	<select id="selectLastQno" resultType="long">
+		select max(qno) from questions
+	</select>
+	
+	<update id="update">
+		update questions set
+		category = #{category},
+		title = #{title},
+		question = #{question},
+		mod_at = now()
+		where qno =#{qno}
+	</update>
+	
+	<delete id="delete">
+		delete from questions where qno = #{qno}
+	</delete>
+</mapper>
