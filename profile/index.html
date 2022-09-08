@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <script src="resources/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark position-fixed w-100">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="images/profile.jpg" alt="Logo" style="width:40px;" class="rounded-pill"> 정호현's portfolio
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        </ul>
+        <span class="navbar-text">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about-me">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#project">Project</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact Me</a>
+            </li>
+          </ul>
+        </span>
+      </div>
+        
+      
+    </div>
+</nav>
+      <div id="profile" class="container-fluid d-lg-flex justify-content-center " style="padding:100px 20px;">
+        <div class="box">
+            <div class="card" style="width:400px">
+                <img class="card-img-top" src="images/profile.jpg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                  <h4 class="card-title">정호현</h4>
+                  <p class="card-text">찾아주셔서 감사합니다.<br>신입 웹개발자 정호현입니다.<br>한번 시작하면 끝을보는게 저의 장점입니다.<br>포기하지 않고 끝까지 노력해 훌륭한 개발자가 되겠습니다!</p>
+                  <a href="#about-me" class="btn btn-primary">더 알아보기</a>
+                </div>
+              </div>
+        </div>
+      </div>
+
+    <div id="about-me" class="container-fluid bg-warning text-white" style="padding:100px 20px;">
+        <h1>About Me</h1>
+        <hr>
+        <div class="about-name about">
+          <div><i class="material-icons">date_range</i></div>
+          <div>생년월일</div>
+          <div>1997.05.13</div>
+          
+        </div>
+        <div class="about-birth about">
+          <div><i class="material-icons">home</i></div>
+          <div>주소지</div>
+          <div>인천광역시 부평구</div>
+        </div>
+        <div class="about-ad about">
+          <div><i class="material-icons">person</i></div>
+          <div>호서대학교</div>
+          <div>로봇자동화공학과 졸업</div>
+        </div>
+        <div class="about-mail about">
+            <div><i class="material-icons">mail</i></div>
+            <div>이메일</div>
+            <div>happyjeong97@gmail.com</div>
+        </div>
+        <div class="clear-fix"></div>
+    </div>
+      
+    <div id="skills" class="container-fluid" style="padding:100px;">
+        <h1>Skills</h1><hr>
+        <h2>Front</h2>
+        <div class="sk sk2">
+            <input type="image" src="images/skill1.jpg" alt="" class="skill">
+        </div>
+        <div class="sk sk2">
+          <input type="image" src="images/skill_bootstrap.png" alt="" class="skill">
+        </div>
+        <div class="clear-fix"></div>
+        <hr><h2>Back</h2>
+        <div class="sk sk1">
+          <input type="image" src="images/skill_java.png" alt="" class="skill">
+        </div>
+        <div class="sk sk1">
+          <input type="image" src="images/jsp.png" alt="" class="skill">
+        </div>
+        <div class="sk sk1">
+          <input type="image" src="images/OG-Spring.png" alt="" class="skill">
+        </div>
+        <div class="clear-fix"></div>
+        <div class="sk sk1">
+          <input type="image" src="images/mysql-logo.png" alt="" class="skill">
+        </div>
+        <div class="sk sk1">
+          <input type="image" src="images/mybatis.png" alt="" class="skill">
+        </div>
+        <div class="sk sk1">
+          <input type="image" src="images/aws.png" alt="" class="skill">
+        </div>
+        <div class="clear-fix"></div>
+        <hr><h2>etc.</h2>
+        <div class="sk sk2">
+          <input type="image" src="images/python.png" alt="" class="skill">
+        </div>
+        <div class="sk sk2">
+          <input type="image" src="images/opencv.png" alt="" class="skill">
+        </div>
+        <div class="clear-fix"></div>
+      </div>
+      
+      <div id="project" class="container-fluid text-white" style="padding:100px 20px;">
+        <h1>Project</h1><hr>
+            <div class="project-box">
+              <h2>Team Project_영화예매사이트</h2>
+              <div><iframe width="50%" height="315" src="https://www.youtube.com/embed/A-T5YlsTsKg" title="YouTube video player" style="border: 2px solid black; border-radius: 20px;"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+              <div>CGV를 레퍼런스하여 영화예매사이트를 구현하였습니다. <br>
+                영화 정보는 <a href="https://www.kobis.or.kr/kobisopenapi/homepg/main/main.do" target="_blank">영화진흥위원회 API</a>를 이용하여 가져왔습니다. <br>
+                회원가입 기본 CRUD와 자주가는 극장추가, 마이페이지 예매내역 출력, 극장정보의 백엔드작업과 프론트작업을 전담하였습니다. <br>
+                처음으로 팀프로젝트를 진행하면서 팀원들과 협업하는 과정에 관해 많이 배울 수 있었습니다. slack을 이용해 소통하였고 파일을 공유 하였습니다. <br>
+                여러가지  의견이 나왔지만 제가 의견을 냈던 영화예매 사이트가 채택되어서 재미있게 할 수 있었습니다. <br>
+                AWS를 이용하여 홈페이지를 구축하였습니다. <hr>
+                github :<a href="https://github.com/JeongHoHyun/project/tree/main/movie_app" target="_blank"> https://github.com/JeongHoHyun/project/tree/main/movie_app</a> <br>
+                URL : <a href="http://ec2-13-209-68-83.ap-northeast-2.compute.amazonaws.com:8080/" target="_blank">http://ec2-13-209-68-83.ap-northeast-2.compute.amazonaws.com:8080/</a>
+              </div>
+                <div>
+                  <a href="http://ec2-13-209-68-83.ap-northeast-2.compute.amazonaws.com:8080/" target="_blank" class="pj-link"> 
+                  <button type="button" id="pj-btn">확인하기</button>
+                </a>
+                  </div>
+              </div>
+
+               <div class="project-box">
+                <h2>게시판 (Q&A) 구현</h2>
+                <div><input type="image" src="images/qna/list.PNG" alt="None" class="pj-img"></div>
+                <div>게시판을 이용해 네이버 지식인을 레퍼런스하여 Q&A사이트를 구현하였습니다. </div>
+                <div>처음으로 해보는 간단한 개인 프로젝트였고 게시판의 원리와 구성을 알게 되었고, <br>기존에 배웠던 기본적인 CRUD를 다시 한번 복습차원에서 공부 할 수 있어서 좋았습니다.</div>
+                <hr>
+                github :<a href="https://github.com/JeongHoHyun/project/tree/main/97_QnA" target="_blank"> https://github.com/JeongHoHyun/project/tree/main/97_QnA</a> <br>
+                  <div>
+                    <button type="button" id="pj-btn" data-bs-toggle="modal" data-bs-target="#myModal">확인하기</button>
+                  </div>
+                </div>
+
+                <div class="project-box">
+                  <h2>호텔객실관리 프로그램</h2>
+                  <div><input type="image" src="images/project1.PNG" alt="" class="pj-img"></div>
+                  <div>JavaScript를 이용하여 호텔객실을 관리하는 페이지를 만들어 보았습니다. <br>
+                    관리할 호수를 입력받고 각각의 기능버튼을 클릭하면 그에 맞게 작동하도록만들었습니다. <br>
+                    JavaScript를 공부하기 위해 해본 가벼운 프로젝트였고 현재 <strong>프론트작업 진행중</strong>입니다.</div>
+                    <div>
+                      <a href="../_js/practice/21_3rd_work_T/Q7.html" class="pj-link" target="_blank">
+                      <button type="button" id="pj-btn">확인하기</button>
+                    </a>
+                    </div>
+                  </div>
+
+                <div class="project-box">
+                  <h2>포트폴리오 사이트</h2>
+                  <div><input type="image" src="images/pofol.PNG" alt="None" class="pj-img"></div>
+                  <div>포트폴리오 용도로 제작한 웹사이트 입니다. 현재 보고 있는 웹사이트 입니다. <br>
+                    공부했던 내용들을 다시한번 정리 할 수 있어서 좋았고, <br>
+                    한편으로는 아직 많이 부족하고 앞으로 더욱 발전을 해야겠다고 다짐할 수 있었던 계기가 되었습니다. <br>
+                    반응형으로 만들어서 모바일로 볼때도 화면이 깨지지 않게 만들었습니다.
+                  </div> <hr>
+                  github :<a href="https://github.com/JeongHoHyun/project/tree/main/profile" target="_blank"> https://github.com/JeongHoHyun/project/tree/main/profile</a> <br>
+                  <div>
+                      <a href="http://jhh.dothome.co.kr/lec/profile/index.html" class="pj-link" target="_blank">
+                      <button type="button" id="pj-btn">보러가기</button>
+                    </a>
+                    </div>
+                  </div>
+
+                  <!-- <div class="project-box">
+                    <a href="" class="pj-link" target="_blank">
+                    <h2>Project Name</h2>
+                    <div><input type="image" src="" alt="None" class="pj-img"></div>
+                    <div>Project </div>
+                      <div>
+                        <button type="button" id="pj-btn">보러가기</button>
+                      </div>
+                    </a>
+                    </div>
+
+                    <div class="project-box">
+                      <a href="" class="pj-link" target="_blank">
+                      <h2>Project Name</h2>
+                      <div><input type="image" src="" alt="None" class="pj-img"></div>
+                      <div>Project </div>
+                        <div>
+                          <button type="button" id="pj-btn">보러가기</button>
+                        </div>
+                      </a>
+                      </div> -->
+    </div>
+    <div id="contact">
+      <a href="https://facebook.com/hohyun97" target="_blank"><input type="image" src="images/facebook.png" alt="" class="rounded-pill"></a>
+      <a href="https://github.com/JeongHoHyun" target="_blank"><input type="image" src="images/github.png" alt="" class="rounded-pill"></a>
+    </div>
+
+    <!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">게시판 (Q&A) 구현</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <h3>게시판을 이용해 네이버 지식인을 레퍼런스하여 Q&A사이트를 구현하였습니다.</h3>
+        <input type="image" src="images/qna/member_register.PNG" class="modal-img">
+        <p>우선 회원가입을 진행하고 질문을 작성 할 수 있습니다.</p>
+        <input type="image" src="images/qna/alert1.PNG" class="modal-img" style="width: 50%;">
+        <input type="image" src="images/qna/alert2.PNG" class="modal-img" style="width: 50%;">
+        <p>이메일 중복검사를 하면 위의 그림과 같은 경고창이 출력됩니다.</p>
+        <input type="image" src="images/qna/list.PNG" class="modal-img">
+        <p>리스트페이지는 위와 같이 가장 최근에 올라온 게시물부터 상단에 표시 됩니다.</p> 
+        <input type="image" src="images/qna/questionREG.PNG" class="modal-img">
+        <p>질문을 등록하는 페이지입니다. 질문의 제목, 카테고리, 내용, 그리고 같이 첨부할 이미지파일을 1개이상(복수선택가능) 등록할 수 있습니다.</p>
+        <input type="image" src="images/qna/questionDetail.PNG" class="modal-img">
+        <p>등록한 화면은 위와 같습니다.</p>
+        <input type="image" src="images/qna/modal_img.PNG" class="modal-img">
+        <p>질문을 올릴 때 올라간 사진은 처음에는 작은 썸네일 이미지로 풀력을하고, Open Image 버튼을 클릭하면 이미지를 조금 더 크게 볼 수 있습니다.</p>
+        <input type="image" src="images/qna/comment.PNG" class="modal-img">
+        <p>질문이 올라가면 여러사람들이 댓글 형식으로 질문에 대한 답변을 할 수 있습니다. 댓글의 수정과 삭제는 작성자만 할 수 있습니다.</p>
+        <input type="image" src="images/qna/modify.PNG" class="modal-img">
+        <p>위의 사진과 같이 질문 내용도 수정할 수 있습니다. 질문 등록자 본인만 수정할 수 있으며 사진또한 삭제와 추가가 가능합니다.</p>
+        <input type="image" src="images/qna/categorySearch.PNG" class="modal-img">
+        <p>위의 사진과 같이 카테고리별, 제목(title)별, 작성자 별로 검색이 가능하고 검색이 된 숫자만큼 search버튼 옆에 숫자가 표시 됩니다.</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

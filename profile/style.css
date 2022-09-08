@@ -1,0 +1,129 @@
+* {
+    text-align: center;
+    font-family: 'Jua', sans-serif;
+}
+body {
+    padding: 0px;
+}
+nav {
+    position: fixed;
+    top: 0%;
+    z-index: 100;
+}
+#profile {
+    background-image: url("images/bg1.png");
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.box{
+    display: flex;
+    justify-content: center;
+}
+#about-box{
+    display: flex;
+    justify-content: center;
+}
+
+.skill{
+    width: 50%;
+}
+.pj-link {
+    color: black;
+    text-decoration: none;
+}
+.pj-link:hover {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+#pj-btn {
+    border: 0px;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+#pj-btn:hover{
+    background-color: aqua;
+}
+.project-box {
+    background-color: white;
+    color: black;
+    margin: 30px;
+    border-radius: 20px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.pj-img{
+    width: 50%;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+#project{
+    background-color: wheat;
+}
+ h1, h2 {
+    font-family: 'Black Han Sans', sans-serif;
+}
+#contact {
+    background-color: black;
+    box-sizing: border-box;
+}
+#contact > a > input{
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+}
+.sk {
+    width: 100%;
+}
+.modal-img{
+    width: 100%;
+}
+
+@media (min-width: 780px) {
+    .clear-fix{
+        clear: left;
+    }
+    .about{
+        display: inline-block;
+        float: left;
+        width: 50%;
+    }
+    #about-me{
+        text-align: center;
+    }
+    .project-box {
+        width: 50%;
+    }
+}
+@media (min-width: 992px) {
+    .clear-fix{
+        clear: left;
+    }
+    .about{
+        display: inline-block;
+        float: left;
+        width: 25%;
+    }
+    #about-me{
+        border: 1px solid black;
+        text-align: center;
+    }
+    .sk1{
+        display: inline-block;
+        float: left;
+        width: 33.3%;
+    }
+    .sk2 {
+        display: inline-block;
+        float: left;
+        width: 50%;
+    }
+}
+
+
