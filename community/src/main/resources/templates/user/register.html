@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+<div th:replace="common/navbar :: navbar"></div>
+
+<div class="container mt-3">
+  <h2>회원 가입</h2>
+  <form action="/action_page.php">
+    <div class="mb-3 mt-3">
+      <label for="loginId">아이디</label> <button type="button" class="btn btn-warning">중복 확인</button>
+      <input type="text" class="form-control" id="loginId" placeholder="아이디를 입력해주세요." name="loginId">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="email">이메일</label>
+      <input type="email" class="form-control" id="email" placeholder="이메일을 입력해주세요." name="email">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="username">이름</label>
+      <input type="text" class="form-control" id="username" placeholder="이름을 입력해주세요." name="username">
+    </div>
+    <div class="mb-3">
+      <label for="password">비밀번호</label>
+      <input type="password" class="form-control" id="password" placeholder="비밀번호를 입력해주세요." name="password">
+    </div>
+    <div class="mb-3">
+      <label for="check_password">비밀번호 확인</label>
+      <input type="password" class="form-control" id="check_password" placeholder="비밀번호를 입력해주세요." name="check_password">
+    </div>
+    <button type="submit" class="btn btn-primary">회원 가입</button>
+  </form>
+</div>
+</body>
+</html>
