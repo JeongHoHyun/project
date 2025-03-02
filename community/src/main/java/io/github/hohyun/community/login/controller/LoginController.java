@@ -1,9 +1,10 @@
 package io.github.hohyun.community.login.controller;
 
+import io.github.hohyun.community.login.domain.LoginVO;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,7 +23,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(Model model, @RequestParam(defaultValue = "/") String redirectURL){
+    public String login(LoginVO vo, @RequestParam(defaultValue = "/") String redirectURL, HttpSession session){
 
         return "redirect:" + redirectURL;
     }
