@@ -9,6 +9,22 @@
       function goRegPage() {
         location.href='/user/register'
       }
+
+      function login() {
+          const user_id = document.getElementById('login_id');
+          if (user_id.value.trim() === ''){
+              alert("아이디를 입력해주세요.");
+              user_id.focus();
+              return;
+          }
+          const password = document.getElementById('password');
+          if (password.value.trim() === ''){
+              alert("비밀번호를 입력해주세요.");
+              password.focus();
+              return;
+          }
+          document.getElementById('login_form').submit();
+      }
     </script>
 </head>
 <body>
@@ -16,21 +32,22 @@
 
 <div class="container mt-3">
   <h2>로그인</h2>
-  <form action="/action_page.php">
+    <form action="/login" method="post" id="login_form" th:object="${loginDTO}">
+    <h2 th:if="${#fields.hasGlobalErrors()}" th:text="${#fields.errors()[0]}" style="color: #dc3545"></h2>
     <div class="mb-3 mt-3">
-      <label for="userId">아이디</label>
-      <input type="text" class="form-control" id="userId" placeholder="아이디를 입력해주세요." name="userId">
+      <label for="login_id">아이디</label>
+      <input type="text" th:field="*{loginId}" class="form-control" id="login_id" placeholder="아이디를 입력해주세요." name="login_id">
     </div>
     <div class="mb-3">
-      <label for="pwd">비밀번호</label>
-      <input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력해주세요." name="pwd">
+      <label for="password">비밀번호</label>
+      <input type="password" class="form-control" id="password" placeholder="비밀번호를 입력해주세요." name="password">
     </div>
-    <div class="form-check mb-3">
+   <!-- <div class="form-check mb-3">
       <label class="form-check-label">
         <input class="form-check-input" type="checkbox" name="remember"> Remember me
       </label>
-    </div>
-    <button type="submit" class="btn btn-primary">로그인</button>
+    </div>-->
+    <button type="button" class="btn btn-primary" id="login_btn" onclick="login()">로그인</button>
     <button type="button" class="btn btn-warning" id="reg_btn" onclick="goRegPage()">회원가입</button>
   </form>
 </div>

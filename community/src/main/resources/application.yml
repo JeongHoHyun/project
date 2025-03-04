@@ -3,7 +3,17 @@ spring:
     active: local
 
   datasource:
-    url: jdbc:mysql://localhost:3306/
+    url: jdbc:mysql://localhost:3306/community
     username: root
     password: happyjeong97
 
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: io.github.hohyun.community.login.domain, io.github.hohyun.community.user.domain
+
+logging:
+  level:
+    io.github.hohyun.community: debug
+    org.mybatis: trace

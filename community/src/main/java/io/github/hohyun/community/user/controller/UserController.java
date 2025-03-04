@@ -36,7 +36,7 @@ public class UserController {
 
     @PostMapping("/checkId")
     @ResponseBody
-    public int checkId(String loginId) {
+    public int checkId(@RequestBody String loginId) {
         log.info("checkId: {}", loginId);
         return userService.duplicateId(loginId);
     }
