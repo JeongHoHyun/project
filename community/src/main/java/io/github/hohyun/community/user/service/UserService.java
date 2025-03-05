@@ -9,4 +9,5 @@ public interface UserService {
     int duplicateId(String loginId);
     UserVO loginUser(UserVO vo);
     UserVO selectUserDetail(Long userId);
+    UserVO findById(String loginId);
 }

@@ -1,10 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="io.github.hohyun.community.user.mapper.UserMapper">
-    <insert id="insertuser" useGeneratedKeys="true" keyProperty="user_id">
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="userId">
         INSERT INTO users
             (login_id, user_name, password, email, reg_date)
         VALUES
             (#{loginId}, #{userName}, #{password}, #{email}, #{regDate})
     </insert>
+
+    <update id="updateUser">
+        UPDATE users
+        SET user_name = #{userName}, email = #{email}, password = #{password}
+        WHERE user_id = #{userId}
+    </update>
+
+    <delete id="deleteUser">
+        DELETE FROM users
+        WHERE user_id = #{userId}
+    </delete>
+
+    <select id="duplicateId" resultType="int">
+         SELECT COUNT(*) FROM users
+         WHERE login_id = #{loginId}
+    </select>
+
+    <select id="selectUserDetail" resultType="UserVO">
+        SELECT
+            user_id, login_id, user_name, email, reg_date, mod_date
+        FROM users
+        WHERE user_id = #{userId}
+    </select>
+
+    <select id="findById" resultType="UserVO">
+        SELECT * FROM users WHERE login_id = #{loginId}
+    </select>
 </mapper>

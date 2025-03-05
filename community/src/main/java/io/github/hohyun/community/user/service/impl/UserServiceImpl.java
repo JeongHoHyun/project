@@ -14,22 +14,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int insertUser(UserVO vo) {
-        return 0;
+        return userMapper.insertUser(vo);
     }
 
     @Override
     public int updateUser(UserVO vo) {
-        return 0;
+        return userMapper.updateUser(vo);
     }
 
     @Override
     public int deleteUser(Long userId) {
-        return 0;
+        return userMapper.deleteUser(userId);
     }
 
     @Override
     public int duplicateId(String loginId) {
-        return 0;
+        return userMapper.duplicateId(loginId);
     }
 
     @Override
@@ -39,7 +39,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserVO selectUserDetail(Long userId) {
-        return null;
+        return userMapper.selectUserDetail(userId);
+    }
+
+    @Override
+    public UserVO findById(String loginId) {
+        return userMapper.findById(loginId);
     }
 
 }

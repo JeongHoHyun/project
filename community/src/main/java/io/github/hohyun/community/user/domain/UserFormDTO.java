@@ -11,8 +11,8 @@ public class UserFormDTO {
     private Long userId;
     private String loginId;
     private String userName;
-    private String password;
     private String email;
+    private String password;
     private String regDate;
     private String modDate;
 }
