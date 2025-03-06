@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 상세보기</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <script>
+        function goToList() {
+            location.href = 'list.html'; // 목록으로 이동
+        }
+
+        function editPost() {
+            const postId = 1; // 실제 구현에서는 서버 데이터와 연동 필요
+            location.href = `edit.html?id=${postId}`;
+        }
+
+        function deletePost() {
+            if (confirm('정말 삭제하시겠습니까?')) {
+                alert('삭제 완료');  // 실제 구현 시 Ajax로 서버 호출
+                goToList();
+            }
+        }
+
+        function showImageModal() {
+            const imageUrl = 'sample_image.jpg'; // 서버 데이터 연동 시 실제 이미지 URL 사용
+            document.getElementById('modalImage').src = imageUrl;
+            const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+            imageModal.show();
+        }
+
+        // 서버에서 데이터 불러오는 로직 (예제)
+        document.addEventListener('DOMContentLoaded', function() {
+            // 예제 데이터 - 실제 구현 시 서버에서 fetch로 불러오기
+            const post = {
+                title: "첫 번째 게시글",
+                author: "관리자",
+                date: "2025-03-06",
+                content: "이곳은 게시글의 본문 내용입니다.\n줄바꿈도 지원해야 합니다.",
+                fileName: "sample_image.jpg",
+                fileUrl: "sample_image.jpg"
+            };
+
+            document.getElementById('postTitle').innerText = post.title;
+            document.getElementById('postAuthor').innerText = post.author;
+            document.getElementById('postDate').innerText = post.date;
+            document.getElementById('postContent').innerText = post.content;
+            document.querySelector('.file-link').innerText = post.fileName;
+
+            // 파일 클릭 시 띄울 이미지 URL 설정
+            window.showImageModal = function() {
+                document.getElementById('modalImage').src = post.fileUrl;
+                const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+                imageModal.show();
+            };
+        });
+    </script>
+    <style>
+        .container { max-width: 800px; }
+        .content-box {
+            white-space: pre-line; /* 줄바꿈 유지 */
+            padding: 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+        .file-link {
+            cursor: pointer;
+            text-decoration: underline;
+            color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4">게시글 상세보기</h2>
+
+    <!-- 제목 -->
+    <div class="mb-3">
+        <h4 id="postTitle">게시글 제목이 들어가는 자리</h4>
+    </div>
+
+    <!-- 작성자, 작성일 -->
+    <div class="mb-3 text-muted">
+        작성자: <span id="postAuthor">홍길동</span> | 작성일: <span id="postDate">2025-03-06</span>
+    </div>
+
+    <!-- 내용 -->
+    <div class="content-box mb-3" id="postContent">
+        여기 본문 내용이 표시됩니다.
+    </div>
+
+    <!-- 첨부파일 -->
+    <div class="mb-4">
+        <strong>첨부파일:</strong>
+        <span class="file-link" onclick="showImageModal()">sample_image.jpg</span>
+    </div>
+
+    <!-- 버튼 영역 -->
+    <div class="d-flex justify-content-between">
+        <button class="btn btn-secondary" onclick="goToList()">이전 목록</button>
+        <div>
+            <button class="btn btn-warning" onclick="editPost()">수정</button>
+            <button class="btn btn-danger" onclick="deletePost()">삭제</button>
+        </div>
+    </div>
+</div>
+
+<!-- 이미지 모달 -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">첨부파일 보기</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modalImage" src="sample_image.jpg" class="img-fluid" alt="첨부 이미지">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

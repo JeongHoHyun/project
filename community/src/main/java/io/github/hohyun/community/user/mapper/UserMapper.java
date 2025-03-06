@@ -1,5 +1,6 @@
 package io.github.hohyun.community.user.mapper;
 
+import io.github.hohyun.community.user.domain.UserInfoDTO;
 import io.github.hohyun.community.user.domain.UserVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -12,5 +13,5 @@ public interface UserMapper {
     int deleteUser(Long userId);
     int duplicateId(String loginId);
     UserVO findById(String loginId);
-    UserVO selectUserDetail(Long userId);
+    UserInfoDTO selectUserDetail(Long userId);
 }

@@ -1,5 +1,6 @@
 package io.github.hohyun.community.user.service.impl;
 
+import io.github.hohyun.community.user.domain.UserInfoDTO;
 import io.github.hohyun.community.user.domain.UserVO;
 import io.github.hohyun.community.user.mapper.UserMapper;
 import io.github.hohyun.community.user.service.UserService;
@@ -38,8 +39,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserVO selectUserDetail(Long userId) {
-        return userMapper.selectUserDetail(userId);
+    public UserInfoDTO selectUserDetail(Long userId) {
+        UserInfoDTO userInfoDTO = userMapper.selectUserDetail(userId);
+        userInfoDTO.setPostCnt(0);
+        userInfoDTO.setCommentCnt(0);
+        return userInfoDTO;
     }
 
     @Override

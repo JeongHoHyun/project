@@ -3,6 +3,7 @@ package io.github.hohyun.community.user.controller;
 import io.github.hohyun.community.user.domain.UserFormDTO;
 import io.github.hohyun.community.user.domain.UserVO;
 import io.github.hohyun.community.user.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String register(UserFormDTO dto) {
+    public String register(@Valid UserFormDTO dto) {
         log.info("register User: {}", dto);
         UserVO user = new UserVO();
         user.setLoginId(dto.getLoginId());
@@ -36,7 +37,7 @@ public class UserController {
 
     @PostMapping("/checkId")
     @ResponseBody
-    public int checkId(@RequestBody String loginId) {
+    public int checkId(@Valid @RequestBody String loginId) {
         log.info("checkId: {}", loginId);
         return userService.duplicateId(loginId);
     }
@@ -49,7 +50,7 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute UserFormDTO dto) {
+    public String update(@Valid UserFormDTO dto) {
         log.info("update User: {}", dto);
         UserVO user = new UserVO();
         user.setUserId(dto.getUserId());

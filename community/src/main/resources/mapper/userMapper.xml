@@ -24,7 +24,7 @@
          WHERE login_id = #{loginId}
     </select>
 
-    <select id="selectUserDetail" resultType="UserVO">
+    <select id="selectUserDetail" resultType="UserInfoDTO">
         SELECT
             user_id, login_id, user_name, email, reg_date, mod_date
         FROM users

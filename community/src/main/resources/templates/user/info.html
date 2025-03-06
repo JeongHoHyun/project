@@ -2,35 +2,40 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>내 정보</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+  <script>
+    function showTab(tabName) {
+      document.querySelectorAll('.nav-link').forEach(function (tab) {
+        tab.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-content > div').forEach(function (tabContent) {
+        tabContent.style.display = 'none';
+      })
+
+      document.getElementById('tab-'+tabName).classList.add('active');
+      document.querySelector('[data-tab="' + tabName + '"]').style.display = 'block';
+    }
+  </script>
 </head>
-<body>
+<body onload="showTab('info')">
 
 <!-- 상단 네비바 (기존꺼 그대로 사용 가능) -->
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Community</a>
-    <ul class="navbar-nav">
-      <li class="nav-item"><a class="nav-link" href="/">홈</a></li>
-      <li class="nav-item"><a class="nav-link" href="/logout" th:if="${session.loginVO != null}">로그아웃</a></li>
-      <li class="nav-item"><a class="nav-link" href="/login" th:if="${session.loginVO == null}">로그인</a></li>
-    </ul>
-  </div>
-</nav>
+<div th:replace="common/navbar :: navbar"></div>
 
 <!-- 아래 탭 네비게이션 -->
 <div class="container mt-4">
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link" th:classappend="${activeTab == 'info'} ? 'active' : ''"
+      <a class="nav-link active" onclick="showTab('info')"
          th:href="@{/user/info/{userId}(userId=${session.loginVO.userId})}">내 정보</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" th:classappend="${activeTab == 'posts'} ? 'active' : ''"
+      <a class="nav-link" onclick="showTab('posts')"
          th:href="@{/user/posts/{userId}(userId=${session.loginVO.userId})}">내 게시물</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" th:classappend="${activeTab == 'comments'} ? 'active' : ''"
+      <a class="nav-link" onclick="showTab('comments')"
          th:href="@{/user/comments/{userId}(userId=${session.loginVO.userId})}">내가 쓴 댓글</a>
     </li>
   </ul>
@@ -39,7 +44,7 @@
   <div class="tab-content mt-3">
 
     <!-- 내 정보 탭 -->
-    <div th:if="${activeTab == 'info'}">
+    <div id="info_div" data-tab="info">
       <h3>내 정보</h3>
       <ul class="list-group">
         <li class="list-group-item"><strong>이름:</strong> <span th:text="${user.userName}"></span></li>
@@ -50,7 +55,7 @@
     </div>
 
     <!-- 내 게시물 탭 -->
-    <div th:if="${activeTab == 'posts'}">
+    <div id="post_div" data-tab="posts" style="display: none">
       <h3>내 게시물</h3>
       <table class="table table-striped">
         <thead>
@@ -71,7 +76,7 @@
     </div>
 
     <!-- 내가 쓴 댓글 탭 -->
-    <div th:if="${activeTab == 'comments'}">
+    <div id="comment_div" data-tab="comments" style="display: none">
       <h3>내가 쓴 댓글</h3>
       <table class="table table-striped">
         <thead>
@@ -95,7 +100,5 @@
 
   </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
